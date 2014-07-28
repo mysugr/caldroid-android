@@ -1096,7 +1096,6 @@ public class CaldroidFragment extends DialogFragment {
 		setShowNavigationArrows(showNavigationArrows);
 
 		// For the weekday gridview ("SUN, MON, TUE, WED, THU, FRI, SAT")
-        //TODO
         LinearLayout l = (LinearLayout)view.findViewById(R.id.calendar_week_title);
         int c = 0;
         for(String s : getDaysOfWeek()){
