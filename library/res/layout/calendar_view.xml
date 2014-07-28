@@ -12,8 +12,8 @@
 
         <Button
             android:id="@+id/calendar_left_arrow"
-            android:layout_width="50dp"
-            android:layout_height="44dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:background="@drawable/left_arrow" />
 
@@ -21,7 +21,6 @@
             android:id="@+id/calendar_month_year_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:layout_toLeftOf="@+id/calendar_right_arrow"
             android:layout_toRightOf="@+id/calendar_left_arrow"
             android:gravity="center_horizontal"
@@ -30,20 +29,67 @@
 
         <Button
             android:id="@+id/calendar_right_arrow"
-            android:layout_width="50dp"
-            android:layout_height="44dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/right_arrow" />
     </RelativeLayout>
 
-    <GridView
-        android:id="@+id/weekday_gridview"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/calendar_week_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-15dp"
-        android:numColumns="7"
-        android:stretchMode="columnWidth" >
-    </GridView>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"/>
+    </LinearLayout>
 
     <com.antonyt.infiniteviewpager.InfiniteViewPager
         android:id="@+id/months_infinite_pager"

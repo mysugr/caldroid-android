@@ -32,6 +32,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.antonyt.infiniteviewpager.InfinitePagerAdapter;
@@ -124,7 +125,6 @@ public class CaldroidFragment extends DialogFragment {
 	private Button leftArrowButton;
 	private Button rightArrowButton;
 	private TextView monthTitleTextView;
-	private GridView weekdayGridView;
 	private InfiniteViewPager dateViewPager;
 	private DatePageChangeListener pageChangeListener;
 	private ArrayList<DateGridFragment> fragments;
@@ -236,25 +236,6 @@ public class CaldroidFragment extends DialogFragment {
 	public CaldroidGridAdapter getNewDatesGridAdapter(int month, int year) {
 		return new CaldroidGridAdapter(getActivity(), month, year,
 				getCaldroidData(), extraData);
-	}
-
-	/**
-	 * Meant to be subclassed. User who wants to provide custom view, need to
-	 * provide custom adapter here
-	 */
-	public WeekdayArrayAdapter getNewWeekdayAdapter() {
-		return new WeekdayArrayAdapter(
-				getActivity(), android.R.layout.simple_list_item_1,
-				getDaysOfWeek());
-	}
-	
-	/**
-	 * For client to customize the weekDayGridView
-	 * 
-	 * @return
-	 */
-	public GridView getWeekdayGridView() {
-		return weekdayGridView;
 	}
 
 	/**
@@ -1115,9 +1096,14 @@ public class CaldroidFragment extends DialogFragment {
 		setShowNavigationArrows(showNavigationArrows);
 
 		// For the weekday gridview ("SUN, MON, TUE, WED, THU, FRI, SAT")
-		weekdayGridView = (GridView) view.findViewById(R.id.weekday_gridview);
-		WeekdayArrayAdapter weekdaysAdapter = getNewWeekdayAdapter();
-		weekdayGridView.setAdapter(weekdaysAdapter);
+        //TODO
+        LinearLayout l = (LinearLayout)view.findViewById(R.id.calendar_week_title);
+        int c = 0;
+        for(String s : getDaysOfWeek()){
+            TextView t = (TextView)l.getChildAt(c);
+            t.setText(s);
+            c++;
+        }
 
 		// Setup all the pages of date grid views. These pages are recycled
 		setupDateGridPages(view);
