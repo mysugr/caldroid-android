@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- UI  -->
+    <color name="ui_grey">#4D4A44</color>
+    <color name="ui_grey_90">#5F5C57</color>
+    <color name="ui_grey_75">#797773</color>
+    <color name="ui_grey_50">#A6A4A1</color>
+    <color name="ui_grey_30">#C9C9C7</color>
+    <color name="ui_grey_15">#E4E4E3</color>
+    <color name="ui_grey_10">#EDEDEC</color>
+    <color name="ui_grey_7">#F3F2F2</color>
+
     <color name="caldroid_white">#FFFFFF</color>
     <color name="caldroid_black">#000000</color>
     <color name="caldroid_transparent">#00000000</color>

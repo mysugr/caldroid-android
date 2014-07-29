@@ -3,6 +3,5 @@
     android:id="@+id/calendar_gridview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/caldroid_lighter_gray"
     android:listSelector="@null"
     android:numColumns="7" />
