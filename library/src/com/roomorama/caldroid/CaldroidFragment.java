@@ -1196,7 +1196,7 @@ public class CaldroidFragment extends DialogFragment {
 		// InfinitePagerAdapter only recycles fragment provided by this
 		// MonthPagerAdapter
 		final MonthPagerAdapter pagerAdapter = new MonthPagerAdapter(
-				getChildFragmentManager());
+				getFragmentManager());
 
 		// Provide initial data to the fragments, before they are attached to
 		// view.
@@ -1229,7 +1229,7 @@ public class CaldroidFragment extends DialogFragment {
 	protected ArrayList<String> getDaysOfWeek() {
 		ArrayList<String> list = new ArrayList<String>();
 
-		SimpleDateFormat fmt = new SimpleDateFormat("EEE", Locale.getDefault());
+		SimpleDateFormat fmt = new SimpleDateFormat("EE", Locale.getDefault());
 
 		// 17 Feb 2013 is Sunday
 		DateTime sunday = new DateTime(2013, 2, 17, 0, 0, 0, 0);

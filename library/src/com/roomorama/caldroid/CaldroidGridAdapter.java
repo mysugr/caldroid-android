@@ -212,8 +212,7 @@ public class CaldroidGridAdapter extends BaseAdapter {
 
 			// Set it
 			if (textColorResource != null) {
-				textView.setTextColor(resources.getColor(textColorResource
-						.intValue()));
+				textView.setTextColor(textColorResource);
 			}
 		}
 	}
