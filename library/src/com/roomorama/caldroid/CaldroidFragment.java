@@ -14,12 +14,12 @@ import java.util.TimeZone;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v4.view.ViewPager;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.view.LayoutInflater;
@@ -1251,7 +1251,7 @@ public class CaldroidFragment extends DialogFragment {
 	 * @author thomasdao
 	 * 
 	 */
-	public class DatePageChangeListener implements OnPageChangeListener {
+	public class DatePageChangeListener implements ViewPager.OnPageChangeListener {
 		private int currentPage = InfiniteViewPager.OFFSET;
 		private DateTime currentDateTime;
 		private ArrayList<CaldroidGridAdapter> caldroidGridAdapters;
