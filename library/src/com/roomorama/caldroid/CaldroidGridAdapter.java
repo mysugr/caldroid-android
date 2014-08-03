@@ -287,7 +287,8 @@ public class CaldroidGridAdapter extends BaseAdapter {
 		cellView.setText("" + dateTime.getDay());
 
 		// Set custom color if required
-		setCustomResources(dateTime, cellView, cellView);
+        if(dateTime.getMonth() == month)
+		    setCustomResources(dateTime, cellView, cellView);
 	}
 
 	@Override
