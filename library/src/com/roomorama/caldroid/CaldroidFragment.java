@@ -1206,8 +1206,7 @@ public class CaldroidFragment extends DialogFragment {
 			CaldroidGridAdapter adapter = datePagerAdapters.get(i);
 			dateGridFragment.setGridAdapter(adapter);
 			dateGridFragment.setOnItemClickListener(getDateItemClickListener());
-			dateGridFragment
-					.setOnItemLongClickListener(getDateItemLongClickListener());
+			dateGridFragment.setOnItemLongClickListener(getDateItemLongClickListener());
 		}
 
 		// Setup InfinitePagerAdapter to wrap around MonthPagerAdapter
@@ -1414,7 +1413,7 @@ public class CaldroidFragment extends DialogFragment {
 	public void onDetach() {
 		super.onDetach();
 
-		try {
+		/*try {
 			Field childFragmentManager = Fragment.class
 					.getDeclaredField("mChildFragmentManager");
 			childFragmentManager.setAccessible(true);
@@ -1424,6 +1423,6 @@ public class CaldroidFragment extends DialogFragment {
 			throw new RuntimeException(e);
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);
-		}
+		}*/
 	}
 }
