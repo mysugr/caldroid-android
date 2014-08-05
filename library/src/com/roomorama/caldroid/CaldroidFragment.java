@@ -87,6 +87,13 @@ public class CaldroidFragment extends DialogFragment {
 	public static int FRIDAY = 6;
 	public static int SATURDAY = 7;
 
+    public static final int MONTH_RANGE = 30;
+    public static final int TWO_WEKK_RANGE = 14;
+    public static final int WEEK_RANGE = 7;
+    public static final int DAY_RANGE = 1;
+
+    private int currentRange = DAY_RANGE;
+
 	/**
 	 * Flags to display month
 	 */
@@ -128,6 +135,11 @@ public class CaldroidFragment extends DialogFragment {
 	private InfiniteViewPager dateViewPager;
 	private DatePageChangeListener pageChangeListener;
 	private ArrayList<DateGridFragment> fragments;
+
+    private View dayRange;
+    private View weekRange;
+    private View twoWeekRange;
+    private View monthRange;
 
 	/**
 	 * Initial params key
@@ -228,6 +240,10 @@ public class CaldroidFragment extends DialogFragment {
 	public CaldroidListener getCaldroidListener() {
 		return caldroidListener;
 	}
+
+    public int getCurrentRange() {
+        return currentRange;
+    }
 
 	/**
 	 * Meant to be subclassed. User who wants to provide custom view, need to
@@ -1117,7 +1133,19 @@ public class CaldroidFragment extends DialogFragment {
 		// Refresh view
 		refreshView();
 
-		// Inform client that all views are created and not null
+        dayRange = view.findViewById(R.id.day_range);
+        weekRange = view.findViewById(R.id.week_range);
+        twoWeekRange = view.findViewById(R.id.two_week_range);
+        monthRange = view.findViewById(R.id.month_range);
+
+        dayRange.setOnClickListener(rangeSelectListener);
+        weekRange.setOnClickListener(rangeSelectListener);
+        twoWeekRange.setOnClickListener(rangeSelectListener);
+        monthRange.setOnClickListener(rangeSelectListener);
+
+        selectCurrentRange(DAY_RANGE);
+
+        // Inform client that all views are created and not null
 		// Client should perform customization for buttons and textviews here
 		if (caldroidListener != null) {
 			caldroidListener.onCaldroidViewCreated();
@@ -1125,6 +1153,40 @@ public class CaldroidFragment extends DialogFragment {
 
 		return view;
 	}
+
+
+    private OnClickListener rangeSelectListener = new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            int id = view.getId();
+            if(id == R.id.day_range){
+                selectCurrentRange(DAY_RANGE);
+            }else if(id == R.id.week_range){
+                selectCurrentRange(WEEK_RANGE);
+            }else if(id == R.id.two_week_range){
+                selectCurrentRange(TWO_WEKK_RANGE);
+            }else if(id == R.id.month_range){
+                selectCurrentRange(MONTH_RANGE);
+            }
+
+        }
+    };
+
+    private void selectCurrentRange(int type){
+
+        currentRange = type;
+        dayRange.setBackgroundResource(R.drawable.white_round_rect);
+        weekRange.setBackgroundResource(R.drawable.white_round_rect);
+        twoWeekRange.setBackgroundResource(R.drawable.white_round_rect);
+        monthRange.setBackgroundResource(R.drawable.white_round_rect);
+
+        switch(type){
+            case DAY_RANGE: dayRange.setBackgroundResource(R.drawable.grey_round_rect); break;
+            case WEEK_RANGE: weekRange.setBackgroundResource(R.drawable.grey_round_rect);break;
+            case TWO_WEKK_RANGE: twoWeekRange.setBackgroundResource(R.drawable.grey_round_rect);break;
+            case MONTH_RANGE: monthRange.setBackgroundResource(R.drawable.grey_round_rect); break;
+        }
+    }
 
 	/**
 	 * Setup 4 pages contain date grid views. These pages are recycled to use
@@ -1195,8 +1257,10 @@ public class CaldroidFragment extends DialogFragment {
 		// MonthPagerAdapter actually provides 4 real fragments. The
 		// InfinitePagerAdapter only recycles fragment provided by this
 		// MonthPagerAdapter
-		final MonthPagerAdapter pagerAdapter = new MonthPagerAdapter(
-				getFragmentManager());
+
+        //this fucking bullshit require childfragmentmanager or pager wont shoe the fragements on orientation change
+        //TODO need to go back to support v4 library
+		final MonthPagerAdapter pagerAdapter = new MonthPagerAdapter(getChildFragmentManager());
 
 		// Provide initial data to the fragments, before they are attached to
 		// view.

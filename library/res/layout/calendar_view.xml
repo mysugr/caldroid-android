@@ -11,31 +11,43 @@
         android:layout_height="30dp"
         android:background="@color/ui_grey_15">
 
-        <Button
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:text="30 Day"
+            android:id="@+id/month_range"
+            android:gravity="center"
             android:background="@drawable/white_round_rect"
             android:layout_margin="5dp"/>
 
-        <Button
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:text="14 Day"
+            android:id="@+id/two_week_range"
+            android:gravity="center"
             android:background="@drawable/white_round_rect"
             android:layout_margin="5dp"/>
 
-        <Button
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:text="Week"
+            android:id="@+id/week_range"
+            android:gravity="center"
             android:background="@drawable/white_round_rect"
             android:layout_margin="5dp"/>
 
-        <Button
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:text="24h."
+            android:id="@+id/day_range"
+            android:gravity="center"
             android:background="@drawable/white_round_rect"
             android:layout_margin="5dp"/>
     </LinearLayout>
