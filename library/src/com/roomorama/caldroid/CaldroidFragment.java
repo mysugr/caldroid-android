@@ -1108,7 +1108,7 @@ public class CaldroidFragment extends DialogFragment {
 			}
 		});
 
-        view.findViewById(R.id.calendar_title_view).setOnClickListener(new OnClickListener() {
+        view.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 //keep empty just to consume MotionEvent
