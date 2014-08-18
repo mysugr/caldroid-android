@@ -153,6 +153,7 @@ public class CaldroidFragment extends DialogFragment {
 	public final static String START_DAY_OF_WEEK = "startDayOfWeek";
 	public final static String SIX_WEEKS_IN_CALENDAR = "sixWeeksInCalendar";
 	public final static String ENABLE_CLICK_ON_DISABLED_DATES = "enableClickOnDisabledDates";
+    public final static String SHOW_RANGE_HEADER = "SHOW_RANGE_HEADER";
 
 	/**
 	 * For internal use
@@ -173,6 +174,7 @@ public class CaldroidFragment extends DialogFragment {
 	protected DateTime minDateTime;
 	protected DateTime maxDateTime;
 	protected ArrayList<DateTime> dateInMonthsList;
+    protected boolean showHeader;
 
 	/**
 	 * caldroidData belongs to Caldroid
@@ -943,6 +945,7 @@ public class CaldroidFragment extends DialogFragment {
 		// Get arguments
 		Bundle args = getArguments();
 		if (args != null) {
+            showHeader = args.getBoolean(SHOW_RANGE_HEADER,true);
 			// Get month, year
 			month = args.getInt(MONTH, -1);
 			year = args.getInt(YEAR, -1);
@@ -1077,6 +1080,10 @@ public class CaldroidFragment extends DialogFragment {
 
 		// Inflate layout
 		View view = inflater.inflate(R.layout.calendar_view, container, false);
+
+        if(!showHeader){
+            view.findViewById(R.id.range_header).setVisibility(View.GONE);
+        }
 
 		// For the monthTitleTextView
 		monthTitleTextView = (TextView) view
