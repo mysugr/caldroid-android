@@ -126,8 +126,8 @@ public class CaldroidFragment extends DialogFragment {
 	/**
 	 * Caldroid view components
 	 */
-	private Button leftArrowButton;
-	private Button rightArrowButton;
+	private View leftArrowButton;
+	private View rightArrowButton;
 	private TextView monthTitleTextView;
 	private InfiniteViewPager dateViewPager;
 	private DatePageChangeListener pageChangeListener;
@@ -263,11 +263,11 @@ public class CaldroidFragment extends DialogFragment {
 	/**
 	 * To let user customize the navigation buttons
 	 */
-	public Button getLeftArrowButton() {
+	public View getLeftArrowButton() {
 		return leftArrowButton;
 	}
 
-	public Button getRightArrowButton() {
+	public View getRightArrowButton() {
 		return rightArrowButton;
 	}
 
@@ -1086,13 +1086,11 @@ public class CaldroidFragment extends DialogFragment {
         }
 
 		// For the monthTitleTextView
-		monthTitleTextView = (TextView) view
-				.findViewById(R.id.calendar_month_year_textview);
+		monthTitleTextView = (TextView) view.findViewById(R.id.calendar_month_year_textview);
 
 		// For the left arrow button
-		leftArrowButton = (Button) view.findViewById(R.id.calendar_left_arrow);
-		rightArrowButton = (Button) view
-				.findViewById(R.id.calendar_right_arrow);
+		leftArrowButton = view.findViewById(R.id.calendar_left_arrow);
+		rightArrowButton = view.findViewById(R.id.calendar_right_arrow);
 
 		// Navigate to previous month when user click
 		leftArrowButton.setOnClickListener(new OnClickListener() {
