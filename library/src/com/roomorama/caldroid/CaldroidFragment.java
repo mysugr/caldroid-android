@@ -71,7 +71,8 @@ import com.caldroid.R;
 
 @SuppressLint("DefaultLocale")
 public class CaldroidFragment extends DialogFragment {
-	public String TAG = "CaldroidFragment";
+
+	public static final String TAG = "CaldroidFragment";
 
 	/**
 	 * Weekday conventions
